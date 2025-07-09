@@ -1,4 +1,4 @@
-module github.com/avivbaron/eduverse/tree/main/proto
+module github.com/avivbaron/eduverse/proto
 
 go 1.24.2
 
