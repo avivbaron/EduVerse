@@ -7,6 +7,7 @@ import (
 
 	pb "github.com/avivbaron/eduverse/proto/userpb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 type server struct {
@@ -15,7 +16,7 @@ type server struct {
 
 func (s *server) GetUser(ctx context.Context, req *pb.UserRequest) (*pb.UserResponse, error) {
 	return &pb.UserResponse{
-		Id:    req.id,
+		Id:    req.Id,
 		Name:  "John Doe",
 		Email: "john@mail.com",
 	}, nil
@@ -32,6 +33,7 @@ func main() {
 	}
 	s := grpc.NewServer()
 	pb.RegisterUserServiceServer(s, &server{})
+	reflection.Register(s)
 	log.Println("gRPC UserService running on port 50051")
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v", err)

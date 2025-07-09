@@ -19,3 +19,7 @@ venv/
 
 # Docker
 *.env
+
+# Else
+evans_windows_amd64
+Makefile
