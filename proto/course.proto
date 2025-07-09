@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package course;
+
+option go_package = "proto/coursepb";
+
+
+service CourseService {
+  rpc GetCourse (CourseRequest) returns (CourseResponse);
+  rpc EnrollUser (EnrollmentRequest) returns (EnrollmentResponse);
+}
+
+message CourseRequest {
+  string id = 1;
+}
+
+message CourseResponse {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+}
+
+message EnrollmentRequest {
+  string user_id = 1;
+  string course_id = 2;
+}
+
+message EnrollmentResponse {
+  bool success = 1;
+}
