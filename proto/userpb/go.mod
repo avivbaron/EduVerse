@@ -1,4 +1,4 @@
-module github.com/avivbaron/eduverse/proto
+module github.com/avivbaron/eduverse/proto/userpb
 
 go 1.24.2
 
