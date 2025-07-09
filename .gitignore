@@ -1,0 +1,21 @@
+# Go
+/bin/
+/pkg/
+/*.exe
+*.test
+*.out
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+*.env
