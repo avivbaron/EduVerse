@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/avivbaron/EduVerse/proto/userpb" // adjust import path
+	pb "github.com/avivbaron/EduVerse/proto/userpb"
 	"google.golang.org/grpc"
 )
 
@@ -31,5 +31,9 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.
+	pb.RegisterUserServiceServer(s, &server{})
+	log.Println("gRPC UserService running on port 50051")
+	if err := s.Serve(lis); err != nil {
+		log.Fatalf("Failed to serve: %v", err)
+	}
 }
